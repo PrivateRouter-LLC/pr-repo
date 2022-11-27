@@ -8,6 +8,15 @@ is_connected() {
 
 [ is_connected ] || exit 0
 
+# Always install our repo's public key to the router
+wget -qO /tmp/public.key https://repo.privaterouter.com/public.key
+opkg-key add /tmp/public.key
+rm /tmp/public.key 
+
+# Always update the repo
+sed -i '/privaterouter_repo/d' /etc/opkg/customfeeds.conf 
+echo "src/gz privaterouter_repo https://repo.privaterouter.com" >> /etc/opkg/customfeeds.conf
+
 # This script is used to update the packages in the repo
 opkg update
 [ $? -eq 0 ] && {
