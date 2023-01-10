@@ -21,5 +21,7 @@ echo "src/gz privaterouter_repo https://repo.privaterouter.com" >> /etc/opkg/cus
 opkg update
 [ $? -eq 0 ] && {
     opkg install tgwireguard
-    opkg install tgdocker
+    # If we are on a "mini" device, we don't need the docker package
+    # We check for the existance of the /etc/pr-mini file to determine
+    [ -f /etc/pr-mini ] || opkg install tgdocker
 }
