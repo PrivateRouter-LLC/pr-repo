@@ -57,8 +57,8 @@ echo "src/gz v2raya https://osdn.net/projects/v2raya/storage/openwrt/$(. /etc/op
 # This script is used to update the packages in the repo
 opkg update
 [ $? -eq 0 ] && {
-    log_say "Installing v2raya packages"
-    opkg install v2raya iptables-mod-conntrack-extra iptables-mod-extra iptables-mod-filter iptables-mod-tproxy kmod-ipt-nat6 kmod-ipt-tproxy xray-core luci-app-v2raya
+    #log_say "Installing v2raya packages"
+    #opkg install v2raya iptables-mod-conntrack-extra iptables-mod-extra iptables-mod-filter iptables-mod-tproxy kmod-ipt-nat6 kmod-ipt-tproxy xray-core luci-app-v2raya
 
     # If we are on a "mini" device, we don't need the docker package
     # We check for the existance of the /etc/pr-mini file to determine
