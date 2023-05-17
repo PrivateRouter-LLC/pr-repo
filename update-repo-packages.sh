@@ -62,7 +62,7 @@ opkg update
 
     # If we are on a "mini" device, we don't need the docker package
     # We check for the existance of the /etc/pr-mini file to determine
-    [ -f /etc/pr-mini ] {
+    [ -f /etc/pr-mini ] && {
         ## INSTALL ROUTER APP STORE ##
         log_say "Installing Router App Store..."
         opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard tgwireguard
