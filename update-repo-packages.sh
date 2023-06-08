@@ -67,6 +67,13 @@ opkg update
         log_say "Installing Router App Store..."
         opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard tgwireguard
         opkg install luci-app-v2raya v2raya
+
+        ## REMOVE PACKAGES INSTALLED BY ERROR ##
+        opkg remove luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-filetransfer luci-app-docker-backup luci-app-nextcloud
+        opkg remove luci-app-jellyfin luci-app-homeassistant tgdocker kmod-veth uxc procd-ujail procd-ujail-console
+        opkg remove luci-app-simplex luci-app-photoprism luci-app-libreddit luci-app-nodered luci-app-diskman
+        opkg remove luci-app-syncthing luci-app-qbittorrentdocker luci-app-megamedia luci-app-whoogle luci-app-nfs luci-app-webtop luci-app-alltube
+        opkg remove luci-app-emby luci-app-joplin luci-app-bookstack luci-app-filebrowser luci-app-heimdall luci-app-seafile
     else
         log_say "Installing PrivateRouter Packages"
         opkg install luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-filetransfer luci-app-docker-backup luci-app-shortcutmenu tgwireguard luci-app-nextcloud
