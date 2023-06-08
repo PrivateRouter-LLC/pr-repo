@@ -62,12 +62,12 @@ opkg update
 
     # If we are on a "mini" device, we don't need the docker package
     # We check for the existance of the /etc/pr-mini file to determine
-    [ -f /etc/pr-mini ] && {
+    if [ -f /etc/pr-mini ]; then
         ## INSTALL ROUTER APP STORE ##
         log_say "Installing Router App Store..."
         opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard tgwireguard
         opkg install luci-app-v2raya v2raya
-    } || {
+    else
         log_say "Installing PrivateRouter Packages"
         opkg install luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-filetransfer luci-app-docker-backup luci-app-shortcutmenu tgwireguard luci-app-nextcloud
         opkg install luci-app-jellyfin luci-app-homeassistant luci-app-poweroff tgdocker kmod-veth uxc procd-ujail procd-ujail-console
@@ -75,5 +75,5 @@ opkg update
         opkg install luci-app-syncthing luci-app-qbittorrentdocker luci-app-megamedia luci-app-whoogle luci-app-nfs luci-app-webtop luci-app-alltube
         opkg install luci-app-emby luci-app-joplin luci-app-bookstack luci-app-filebrowser luci-app-heimdall luci-app-seafile
         opkg install luci-app-v2raya v2raya
-    }
+    fi
 }
