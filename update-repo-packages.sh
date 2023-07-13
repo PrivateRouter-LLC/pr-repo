@@ -43,16 +43,19 @@ log_say "Add PrivateRouter repo"
 sed -i '/privaterouter_repo/d' /etc/opkg/customfeeds.conf 
 echo "src/gz privaterouter_repo https://repo.privaterouter.com" >> /etc/opkg/customfeeds.conf
 
+# Temp fix to remove v2raya repo until we can find a backup
+sed -i '/v2raya/d' /etc/opkg/customfeeds.conf
+
 # Always install our repo's public key to the router
-log_say "Installing v2raya repo public key"
-wget -qO /tmp/v2raya.pub https://osdn.net/projects/v2raya/storage/openwrt/v2raya.pub
-opkg-key add /tmp/v2raya.pub
-rm /tmp/v2raya.pub
+#log_say "Installing v2raya repo public key"
+#wget -qO /tmp/v2raya.pub https://osdn.net/projects/v2raya/storage/openwrt/v2raya.pub
+#opkg-key add /tmp/v2raya.pub
+#rm /tmp/v2raya.pub
 
 # Always update the repo
-log_say "Add v2raya repo"
-sed -i '/v2raya/d' /etc/opkg/customfeeds.conf 
-echo "src/gz v2raya https://osdn.net/projects/v2raya/storage/openwrt/$(. /etc/openwrt_release && echo "$DISTRIB_ARCH")" >> /etc/opkg/customfeeds.conf
+#log_say "Add v2raya repo"
+#sed -i '/v2raya/d' /etc/opkg/customfeeds.conf 
+#echo "src/gz v2raya https://osdn.net/projects/v2raya/storage/openwrt/$(. /etc/openwrt_release && echo "$DISTRIB_ARCH")" >> /etc/opkg/customfeeds.conf
 
 # This script is used to update the packages in the repo
 opkg update
@@ -66,7 +69,7 @@ opkg update
         ## INSTALL ROUTER APP STORE ##
         log_say "Installing Router App Store..."
         opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard tgwireguard
-        opkg install luci-app-v2raya v2raya
+        #opkg install luci-app-v2raya v2raya
 
         ## REMOVE PACKAGES INSTALLED BY ERROR ##
         opkg remove luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-filetransfer luci-app-docker-backup luci-app-nextcloud
