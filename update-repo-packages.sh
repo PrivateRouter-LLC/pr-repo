@@ -51,7 +51,7 @@ opkg update
 [ $? -eq 0 ] && {
 
     # Everyone gets these packages
-    opkg install tgopenvpn
+    opkg install tgopenvpn tgsstp tganyconnect
 
     # If we are on a "mini" device, we don't need the docker package
     # We check for the existance of the /etc/pr-mini file to determine
