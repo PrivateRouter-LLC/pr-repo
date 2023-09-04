@@ -68,10 +68,10 @@ opkg update
         opkg remove luci-app-emby luci-app-joplin luci-app-bookstack luci-app-filebrowser luci-app-heimdall luci-app-seafile
     else
         log_say "Installing PrivateRouter Packages"
-        opkg install luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-filetransfer luci-app-docker-backup luci-app-shortcutmenu tgwireguard luci-app-nextcloud
-        opkg install luci-app-jellyfin luci-app-homeassistant luci-app-poweroff tgdocker kmod-veth uxc procd-ujail procd-ujail-console
-        opkg install tgappstore luci-app-wizard luci-app-simplex luci-app-photoprism luci-app-libreddit luci-app-nodered luci-app-diskman
-        opkg install luci-app-syncthing luci-app-qbittorrentdocker luci-app-megamedia luci-app-whoogle luci-app-nfs luci-app-webtop luci-app-alltube
-        opkg install luci-app-emby luci-app-joplin luci-app-bookstack luci-app-filebrowser luci-app-heimdall luci-app-seafile
+        opkg install luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-docker-backup luci-app-shortcutmenu tgwireguard luci-app-nextcloud
+        opkg install luci-app-poweroff tgdocker kmod-veth uxc procd-ujail procd-ujail-console
+        opkg install tgappstore luci-app-wizard luci-app-diskman
+        opkg install luci-app-syncthing luci-app-qbittorrentdocker
+        opkg install luci-app-filebrowser kmod-igc
     fi
 }
