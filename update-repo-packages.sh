@@ -45,12 +45,6 @@ wait_for_opkg() {
 # Wait for opkg to finish
 wait_for_opkg
 
-log_say "Waiting for opkg update to succesfully run..."
-while ! opkg update >/tmp/opkg_update.log 2>&1; do
-    log_say "... Waiting for opkg update to succesfully run ..."
-    sleep 1
-done
-
 # Always install our repo's public key to the router
 log_say "Installing PrivateRouter repo public key"
 wget -qO /tmp/public.key https://repo.privaterouter.com/public.key
@@ -64,6 +58,13 @@ echo "src/gz privaterouter_repo https://repo.privaterouter.com" >> /etc/opkg/cus
 
 # Temp fix to remove v2raya repo until we can find a backup
 sed -i '/v2raya/d' /etc/opkg/customfeeds.conf
+
+# Make sure we have ran opkg update at least once
+log_say "Waiting for opkg update to succesfully run..."
+while ! opkg update >/tmp/opkg_update.log 2>&1; do
+    log_say "... Waiting for opkg update to succesfully run ..."
+    sleep 1
+done
 
 # This script is used to update the packages in the repo
 
