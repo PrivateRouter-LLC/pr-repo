@@ -98,12 +98,13 @@ if [ -f /etc/pr-mini ]; then
     exit 0 
 else
     log_say "Installing PrivateRouter Cloud Packages"
-	opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard
-    opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
-    opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd
+    opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard
     opkg install luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-docker-backup luci-app-shortcutmenu tgwireguard luci-app-nextcloud
     opkg install luci-app-poweroff tgdocker kmod-veth uxc procd-ujail procd-ujail-console
     opkg install tgappstore luci-app-wizard luci-app-diskman
     opkg install luci-app-syncthing luci-app-qbittorrentdocker
     opkg install luci-app-filebrowser kmod-igc tgopenvpn tgsstp tganyconnect
+    opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
+    opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd mesh11sd batctl-full luci-app-dawn
+    opkg install /etc/luci-app-easymesh_2.1_all.ipk
 fi
