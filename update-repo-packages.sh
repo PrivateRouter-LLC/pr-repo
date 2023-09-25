@@ -79,8 +79,7 @@ if [ -f /etc/pr-mesh ]; then
     log_say "Installing Mesh Packages..."
     opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard
     opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
-    opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd
-    opkg remove tgwireguard tgopenvpn tgsstp tganyconnect
+    opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd mesh11sd batctl-full
     exit 0 
 fi
 
