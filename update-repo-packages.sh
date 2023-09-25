@@ -81,6 +81,7 @@ if [ -f /etc/pr-mesh ]; then
     opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
     opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd
     opkg remove tgwireguard tgopenvpn tgsstp tganyconnect
+    exit 0 
 fi
 
 if [ -f /etc/pr-mini ]; then
