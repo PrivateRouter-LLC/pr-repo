@@ -80,13 +80,14 @@ if [ -f /etc/pr-mesh ]; then
     opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard
     opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
     opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd mesh11sd batctl-full luci-app-dawn
+    opkg install /etc/luci-app-easymesh_2.1_all.ipk
     exit 0 
 fi
 
 if [ -f /etc/pr-mini ]; then
     ## INSTALL ROUTER APP STORE ##
     log_say "Installing Router App Store..."
-    opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard tgwireguard tgopenvpn tgsstp tganyconnect
+    opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard tgwireguard tgopenvpn
     
     ## REMOVE PACKAGES INSTALLED BY ERROR ##
     opkg remove luci-lib-taskd taskd tgappstore luci-lib-xterm luci-lib-fs luci-app-filetransfer luci-app-docker-backup luci-app-nextcloud
