@@ -81,7 +81,7 @@ if [ -f /etc/pr-mesh ]; then
     opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
     opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd mesh11sd batctl-full luci-app-dawn
     opkg install /etc/luci-app-easymesh_2.1_all.ipk
-    exit 0 
+     
 fi
 
 if [ -f /etc/pr-mini ]; then
@@ -95,7 +95,7 @@ if [ -f /etc/pr-mini ]; then
     opkg remove luci-app-simplex luci-app-photoprism luci-app-libreddit luci-app-nodered luci-app-diskman
     opkg remove luci-app-syncthing luci-app-qbittorrentdocker luci-app-megamedia luci-app-whoogle luci-app-nfs luci-app-webtop luci-app-alltube
     opkg remove luci-app-emby luci-app-joplin luci-app-bookstack luci-app-filebrowser luci-app-heimdall luci-app-seafile
-    exit 0 
+     
 else
     log_say "Installing PrivateRouter Cloud Packages"
     opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard
