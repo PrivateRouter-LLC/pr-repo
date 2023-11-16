@@ -72,17 +72,7 @@ done
 # opkg install tgopenvpn tgsstp tganyconnect
 
 # If we are on a "mini" or "mesh" device, we don't need the docker package
-# We check for the existence of the /etc/pr-mini /etc/pr-mesh file to determine
-
-if [ -f /etc/pr-mesh ]; then
-    ## INSTALL MESH LEAN PROFILE ##
-    log_say "Installing Mesh Packages..."
-    opkg install tgrouterappstore luci-app-shortcutmenu luci-app-poweroff luci-app-wizard
-    opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
-    opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd mesh11sd batctl-full luci-app-dawn
-    opkg install /etc/luci-app-easymesh_2.1_all.ipk
-     
-fi
+# We check for the existence of the /etc/pr-mini file to determine
 
 if [ -f /etc/pr-mini ]; then
     ## INSTALL ROUTER APP STORE ##
@@ -106,5 +96,4 @@ else
     opkg install luci-app-filebrowser kmod-igc tgopenvpn tgsstp tganyconnect
     opkg remove wpad wpad-basic wpad-basic-openssl wpad-basic-wolfssl wpad-wolfssl
     opkg install wpad-mesh-openssl kmod-batman-adv batctl avahi-autoipd mesh11sd batctl-full luci-app-dawn
-    opkg install /etc/luci-app-easymesh_2.1_all.ipk
 fi
